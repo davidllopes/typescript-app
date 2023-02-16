@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
+import { HTMLAttributes, useEffect, useState } from "react";
 
-const Header = () => {
+interface HeaderProps extends HTMLAttributes<HTMLElement> {
+    titleStr: string | string[];
+}
+
+export const Header = ({ className, titleStr }: HeaderProps) => {
     const [isLogged, setIsLogged] = useState(false);
     useEffect(() => {
         setIsLogged(true);
@@ -13,6 +17,5 @@ const Header = () => {
     if (isLogged) {
         console.log("do it");
     }
+    return <div>{titleStr}</div>;
 };
-
-export default Header;
